@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroSection";
+import HelpPopup, { useHelpPopup } from "@/components/landing/HelpPopup";
 
 // Lazy-load below-the-fold sections for faster initial render
 const StatsSection = lazy(() => import("@/components/landing/StatsSection"));
@@ -15,8 +16,11 @@ const Footer = lazy(() => import("@/components/landing/Footer"));
 
 const LazyFallback = () => <div className="py-20" />;
 
-const Index: React.FC = () => (
-  <>
+const Index: React.FC = () => {
+  const { isOpen, closePopup } = useHelpPopup(15000); // 15 seconds
+
+  return (
+    <>
     <Navbar />
     <main>
       <HeroSection />
@@ -34,7 +38,9 @@ const Index: React.FC = () => (
     <Suspense fallback={null}>
       <Footer />
     </Suspense>
+    <HelpPopup isOpen={isOpen} onClose={closePopup} />
   </>
-);
+  );
+};
 
 export default Index;

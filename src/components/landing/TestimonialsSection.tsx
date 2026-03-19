@@ -51,9 +51,11 @@ const TestimonialCard: React.FC<typeof testimonials[number]> = memo(({ name, rol
 TestimonialCard.displayName = "TestimonialCard";
 
 const TestimonialsSection: React.FC = memo(() => (
-  <section id="testimonials" className="py-20 bg-accent/20 section-divider">
+  <section id="testimonials" className="section-testimonials">
+
     <div className="container mx-auto px-4 text-center">
       <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-xs font-semibold tracking-wide uppercase">
+
         Our Testimonials
       </span>
       <h2 className="mt-4 font-display text-3xl md:text-4xl font-bold text-foreground">

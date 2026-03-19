@@ -28,7 +28,7 @@ const steps = [
 ] as const;
 
 const HowItWorksSection: React.FC = memo(() => (
-  <section id="how-it-works" className="py-20 bg-background section-divider">
+  <section id="how-it-works" className="py-20 bg-background section-howitworks">
     <div className="container mx-auto px-4 text-center">
       <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-xs font-semibold tracking-wide uppercase">
         <Sparkles className="w-3.5 h-3.5" />
@@ -71,3 +71,4 @@ const HowItWorksSection: React.FC = memo(() => (
 
 HowItWorksSection.displayName = "HowItWorksSection";
 export default HowItWorksSection;
+

@@ -1,6 +1,11 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+
+const Navbar = lazy(() => import("@/components/landing/Navbar"));
+const Footer = lazy(() => import("@/components/landing/Footer"));
+
+const PageLoader = () => <div className="min-h-screen bg-background" />;
 
 const sections = [
   {
@@ -61,31 +66,39 @@ const sections = [
 ];
 
 const PrivacyPolicy: React.FC = () => (
-  <div className="min-h-screen bg-background">
-    <div className="container mx-auto px-4 py-16 max-w-3xl">
-      <Link
-        to="/"
-        className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-10"
-      >
-        <ArrowLeft size={16} />
-        Back to home
-      </Link>
+  <>
+    <Suspense fallback={<PageLoader />}>
+      <Navbar />
+    </Suspense>
+    <div className="min-h-screen bg-background pt-20">
+      <div className="container mx-auto px-4 py-16 max-w-3xl">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-10"
+        >
+          <ArrowLeft size={16} />
+          Back to home
+        </Link>
 
-      <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-3 tracking-tight">
-        Privacy Policy
-      </h1>
-      <p className="text-muted-foreground mb-12">Last updated: March 19, 2026</p>
+        <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-3 tracking-tight">
+          Privacy Policy
+        </h1>
+        <p className="text-muted-foreground mb-12">Last updated: March 19, 2026</p>
 
-      <div className="space-y-10">
-        {sections.map((s) => (
-          <section key={s.title}>
-            <h2 className="font-display text-xl font-bold text-foreground mb-3">{s.title}</h2>
-            <p className="text-muted-foreground leading-relaxed">{s.content}</p>
-          </section>
-        ))}
+        <div className="space-y-10">
+          {sections.map((s) => (
+            <section key={s.title}>
+              <h2 className="font-display text-xl font-bold text-foreground mb-3">{s.title}</h2>
+              <p className="text-muted-foreground leading-relaxed">{s.content}</p>
+            </section>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
+    <Suspense fallback={null}>
+      <Footer />
+    </Suspense>
+  </>
 );
 
 export default PrivacyPolicy;

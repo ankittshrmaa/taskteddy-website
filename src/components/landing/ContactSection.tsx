@@ -14,7 +14,7 @@ const ContactSection: React.FC = memo(() => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-accent/30 section-divider">
+    <section id="contact" className="py-20 bg-accent/30 section-contact">
       <div className="container mx-auto px-4">
         <div className="text-center">
           <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-xs font-semibold tracking-wide uppercase">
@@ -61,7 +61,8 @@ const ContactSection: React.FC = memo(() => {
           </div>
 
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="rounded-3xl bg-card border border-border p-8 shadow-sm space-y-5">
+          <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit} className="rounded-3xl bg-card border border-border p-8 shadow-sm space-y-5">
+            <input type="hidden" name="form-name" value="contact" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input placeholder="Your name" required className="rounded-xl" />
               <Input type="email" placeholder="Your email" required className="rounded-xl" />
@@ -80,3 +81,4 @@ const ContactSection: React.FC = memo(() => {
 
 ContactSection.displayName = "ContactSection";
 export default ContactSection;
+

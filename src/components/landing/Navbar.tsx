@@ -1,5 +1,5 @@
 import React, { memo, useState } from "react";
-import mascot from "@/assets/taskteddy-mascot.png";
+import mascotIcon from "@/assets/taskteddy-mascot.png";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -18,7 +18,7 @@ const Navbar: React.FC = memo(() => {
       <div className="flex items-center justify-between">
         {/* Logo — left side */}
         <a href="#" className="flex items-center gap-2 shrink-0">
-          <img src={mascot} alt="TaskTeddy" className="h-8 w-8 drop-shadow-sm" width={32} height={32} />
+          <img src={mascotIcon} alt="TaskTeddy" className="h-8 w-8 drop-shadow-sm" width={32} height={32} />
           <span className="font-display text-lg font-extrabold tracking-tight text-primary">
             TaskTeddy
           </span>

@@ -7,9 +7,11 @@ const stats = [
 ] as const;
 
 const StatsSection: React.FC = memo(() => (
-  <section className="py-16 bg-background section-divider">
+  <section className="section-stats">
+
     <div className="container mx-auto px-4">
       <p className="text-center text-base font-medium text-muted-foreground mb-2">
+
         On-demand professional task management
       </p>
       <p className="text-center text-sm text-muted-foreground max-w-md mx-auto mb-10">

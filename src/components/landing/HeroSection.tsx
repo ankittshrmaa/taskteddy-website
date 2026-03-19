@@ -17,10 +17,10 @@ const HeroSection: React.FC = memo(() => (
       </p>
 
       <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.24s" }}>
-        <Button size="lg" className="gradient-primary text-primary-foreground rounded-full px-10 py-6 text-base font-bold shadow-lg hover:opacity-90 transition-opacity min-w-[200px]">
+        <Button size="lg" className="gradient-primary text-primary-foreground rounded-full px-10 py-6 text-base font-bold shadow-lg hover:opacity-90 transition-opacity min-w-[200px]" aria-label="Get Started Free">
           Get Started Free
         </Button>
-        <Button size="lg" variant="outline" className="rounded-full px-10 py-6 text-base font-bold border-2 border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors min-w-[200px]">
+        <Button size="lg" variant="outline" className="rounded-full px-10 py-6 text-base font-bold border-2 border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors min-w-[200px]" aria-label="See How It Works">
           See How It Works
         </Button>
       </div>

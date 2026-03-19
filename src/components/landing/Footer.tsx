@@ -1,7 +1,10 @@
 import React, { memo } from "react";
-import { Instagram, Facebook, Linkedin } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { Link } from "react-router-dom";
-import mascot from "@/assets/taskteddy-mascot.png";
+import mascotIcon from "@/assets/taskteddy-mascot.png";
+import instagramIcon from "@/assets/social/instagram.svg";
+import facebookIcon from "@/assets/social/facebook.svg";
+import linkedinIcon from "@/assets/social/linkedin.svg";
 
 const serviceLinks = [
   { label: "Features", href: "#features" },
@@ -19,9 +22,9 @@ const legalLinks = [
 ] as const;
 
 const socialLinks = [
-  { label: "Instagram", href: "#", icon: Instagram },
-  { label: "Facebook", href: "#", icon: Facebook },
-  { label: "LinkedIn", href: "#", icon: Linkedin },
+  { label: "Instagram", href: "#", icon: instagramIcon },
+  { label: "Facebook", href: "#", icon: facebookIcon },
+  { label: "LinkedIn", href: "#", icon: linkedinIcon },
 ] as const;
 
 const Footer: React.FC = memo(() => (
@@ -32,7 +35,7 @@ const Footer: React.FC = memo(() => (
         {/* Brand */}
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2.5">
-            <img src={mascot} alt="TaskTeddy" className="h-9 w-9" width={36} height={36} loading="lazy" />
+            <img src={mascotIcon} alt="TaskTeddy" className="h-9 w-9" width={36} height={36} loading="lazy" />
             <span className="font-display text-xl font-extrabold text-primary">TaskTeddy</span>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
@@ -77,15 +80,15 @@ const Footer: React.FC = memo(() => (
         {/* Socials */}
         <div>
           <h4 className="font-semibold text-foreground mb-4 text-sm tracking-wide uppercase">Socials</h4>
-          <div className="flex gap-4">
+          <div className="flex gap-3">
             {socialLinks.map((s) => (
               <a
                 key={s.label}
                 href={s.href}
                 aria-label={s.label}
-                className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary transition-colors"
               >
-                <s.icon size={18} />
+                <img src={s.icon} alt={s.label} className="w-5 h-5" />
               </a>
             ))}
           </div>
@@ -93,8 +96,15 @@ const Footer: React.FC = memo(() => (
       </div>
 
       {/* Bottom */}
-      <div className="border-t border-border pt-6 text-center">
-        <p className="text-xs text-muted-foreground">© 2026 TaskTeddy. All rights reserved.</p>
+      <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="text-xs text-muted-foreground mx-auto">© 2026 TaskTeddy. All rights reserved.</p>
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary transition-colors"
+        >
+          Back to Top
+          <ArrowUp size={14} />
+        </button>
       </div>
     </div>
   </footer>
